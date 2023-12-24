@@ -78,6 +78,15 @@ To set this project up locally and run it, follow these steps:
    ```
 
 4. Enter your API in `app.py`
+5. Run the following command to create serialized version of the model into a file model.pkl
+   ```sh
+   python model.py
+   ```
+6. Run app.py using below command to start Flask API. By default, flask will run on port 5000. Navigate to URL http://localhost:5000
+   ```sh
+   python app.py
+   ```
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
