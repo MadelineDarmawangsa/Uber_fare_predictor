@@ -26,6 +26,7 @@ def predict():
     geocoded_dropoff = geocoder.bing(dropoff, key='AiCLMz_5eRW1nKB5_jdTvGrFKOk-BTnhrvQ6stoLJi5_i-XqdcPLKT34fRCibkQU')
     dropoff_coords = geocoded_dropoff.json
 
+
     def haversine(lon1, lat1, lon2, lat2):
         """
         Calculate the great circle distance in kilometers between two points 
@@ -43,9 +44,12 @@ def predict():
         return c * r
 
     distance = haversine(pickup_coords['lng'],pickup_coords['lat'],dropoff_coords['lng'],dropoff_coords['lat'])
-    features = [[int(distance)]+[int(hour)]]
-    prediction = model.predict(features)
-    output = max(6.0,np.round(prediction[0], 2)[0])
+    features = [[int(distance)]+[float(hour)]]
+    prediction = model.predict(features)[0][0]
+    output = prediction
+    if prediction<6:
+        output = 6 + (prediction - int(prediction))
+    output = np.round(output, 2)
 
     return render_template('index.html', prediction_text='Uber fare should be ${}'.format(output))
 

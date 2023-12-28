@@ -4,9 +4,7 @@ import pandas as pd
 import pickle
 
 # # **Loading the Dataset**
-# First we load the dataset and find out the number of columns, rows, NULL values, etc.
-# 1. Data is from 2009 to 2015
-# 2. 200,000 Entries
+# 1. Data is from 2009 to 2015 and has 200,000 Entries
 
 uber = pd.read_csv('./uber.csv')
 
@@ -178,12 +176,12 @@ sns.distplot(uber_2['fare_amount'], color='g',hist_kws=dict(edgecolor="black", l
 plt.title('Target Variable Distribution')
 
 X = uber_2[['Distance','Hour']].values.reshape(-1, 2)        
-y = uber_2['fare_amount'].values.reshape(-1, 1)    
+Y = uber_2['fare_amount'].values.reshape(-1, 1)    
 
 
 from sklearn.preprocessing import StandardScaler
 std = StandardScaler()
-y_std = std.fit_transform(y)
+y_std = std.fit_transform(Y)
 
 x_std = std.fit_transform(X)
 
@@ -196,8 +194,8 @@ X_train, X_test, y_train, y_test = train_test_split(x_std, y_std, test_size=0.2,
 from sklearn.linear_model import LinearRegression
 l_reg = LinearRegression()
 
-#Fitting model with trainig data
-l_reg.fit(X, y)
+#Fitting model with training data
+l_reg.fit(X, Y)
 
 # Saving model to disk
 pickle.dump(l_reg, open('model.pkl','wb'))
