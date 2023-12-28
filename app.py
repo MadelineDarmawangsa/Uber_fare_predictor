@@ -21,13 +21,10 @@ def predict():
     '''
     pickup, dropoff, hour = request.form.values()
 
-
     geocoded_pickup = geocoder.bing(pickup, key='AiCLMz_5eRW1nKB5_jdTvGrFKOk-BTnhrvQ6stoLJi5_i-XqdcPLKT34fRCibkQU')
     pickup_coords = geocoded_pickup.json
     geocoded_dropoff = geocoder.bing(dropoff, key='AiCLMz_5eRW1nKB5_jdTvGrFKOk-BTnhrvQ6stoLJi5_i-XqdcPLKT34fRCibkQU')
     dropoff_coords = geocoded_dropoff.json
-
-
 
     def haversine(lon1, lat1, lon2, lat2):
         """
@@ -48,7 +45,7 @@ def predict():
     distance = haversine(pickup_coords['lng'],pickup_coords['lat'],dropoff_coords['lng'],dropoff_coords['lat'])
     features = [[int(distance)]+[int(hour)]]
     prediction = model.predict(features)
-    output = np.round(prediction[0], 2)
+    output = max(6.0,np.round(prediction[0], 2)[0])
 
     return render_template('index.html', prediction_text='Uber fare should be ${}'.format(output))
 

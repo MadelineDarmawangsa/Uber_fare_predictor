@@ -30,8 +30,7 @@ def haversine (lon_1, lon_2, lat_1, lat_2):
     diff_lat = lat_2 - lat_1
     
 
-    km = 2 * 6371 * np.arcsin(np.sqrt(np.sin(diff_lat/2.0)**2 + 
-                                      np.cos(lat_1) * np.cos(lat_2) * np.sin(diff_lon/2.0)**2))
+    km = 2 * 6371 * np.arcsin(np.sqrt(np.sin(diff_lat/2.0)**2 + np.cos(lat_1) * np.cos(lat_2) * np.sin(diff_lon/2.0)**2))
     
     return km
 
@@ -98,7 +97,7 @@ for i in range(2009, 2016):
     no_of_trips.append(x)
 
 
-plt.bar(year, no_of_trips, color=colors)
+# plt.bar(year, no_of_trips, color=colors)
 
 no_of_trips = []
 month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -121,8 +120,6 @@ colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd',
 for i in range(0, 7):
     x = uber_2.loc[uber_2['Day of Week_num'] == i, 'counter'].sum()
     no_of_trips.append(x)
-
-plt.bar(day, no_of_trips, color=colors)
 
 # # **Rides vs Time**
 # Relation between average number of rides over a period of time.
@@ -180,8 +177,8 @@ plt.figure(figsize=[8,4])
 sns.distplot(uber_2['fare_amount'], color='g',hist_kws=dict(edgecolor="black", linewidth=2), bins=30)
 plt.title('Target Variable Distribution')
 
-X = uber_2[['Distance','Hour']].values.reshape(-1, 2)         #Independent Variable
-y = uber_2['fare_amount'].values.reshape(-1, 1)     #Dependent Variable
+X = uber_2[['Distance','Hour']].values.reshape(-1, 2)        
+y = uber_2['fare_amount'].values.reshape(-1, 1)    
 
 
 from sklearn.preprocessing import StandardScaler
@@ -190,7 +187,6 @@ y_std = std.fit_transform(y)
 
 x_std = std.fit_transform(X)
 
-# # **Splitting the Dataset**
 # Training and Test Set
 
 from sklearn.model_selection import train_test_split
@@ -209,4 +205,4 @@ pickle.dump(l_reg, open('model.pkl','wb'))
 # Loading model to compare the results
 model = pickle.load(open('model.pkl','rb'))
 
-print(model.predict([[2,2]]))
+# print(max(6,model.predict([[2,2]])))
