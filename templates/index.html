@@ -14,12 +14,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- Google Maps JavaScript library -->
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyCMksf3tG9hD4MiIAHI2SrD3tSbvgwd9iY"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyCmBqDFSagdSZHeeoqyZwfnXYrz9mlXOeo"></script>
  
   
 </head>
 
 <body>
+  
   
  <div class="predict_box" >
 	<h1>Predict Uber Fare</h1>
@@ -86,7 +87,9 @@
 
    <br>
    <br>
-   {{ prediction_text }}
+   <div class="prediction-text">
+    {{ prediction_text }}
+   </div>
 
  </div>
 
