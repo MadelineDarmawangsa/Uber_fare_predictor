@@ -94,11 +94,8 @@ To set this project up locally and run it, follow these steps:
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-
-<img width="1440" alt="Screenshot 2023-08-20 at 4 54 35 PM" src="https://github.com/MadelineDarmawangsa/Uber_fare_predictor/assets/94712005/93f48c03-ec20-4727-a19c-abb72165caa7">
-
-<img width="1440" alt="Screenshot 2023-08-20 at 4 54 59 PM" src="https://github.com/MadelineDarmawangsa/Uber_fare_predictor/assets/94712005/d2eea8f4-6c52-4b34-8166-526883920fc5">
-
+<img width="1440" alt="Screenshot 2023-12-30 at 8 24 40 PM" src="https://github.com/MadelineDarmawangsa/Uber_fare_predictor/assets/94712005/d6ec22fe-8033-44cb-978d-0c6b005937c7">
+<img width="1440" alt="Screenshot 2023-12-30 at 8 32 07 PM" src="https://github.com/MadelineDarmawangsa/Uber_fare_predictor/assets/94712005/3b3e480b-f9a4-4820-90da-e327b99f4f14">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
